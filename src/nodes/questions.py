@@ -1,4 +1,4 @@
-from utils.parts.qa_verification import generate_verification_questions
+from src.utils.parts.qa_verification import generate_verification_questions
 
 from src.types import QuestionsState, WorkflowState
 

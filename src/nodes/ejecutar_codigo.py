@@ -1,4 +1,4 @@
-from utils.parts.codigo import save_llm_code_to_file, execute_cadquery_script
+from src.utils.parts.codigo import save_llm_code_to_file, execute_cadquery_script
 
 from src.types import EjecutarCodigoState, ExtraerCodigoState
 

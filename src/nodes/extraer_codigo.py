@@ -1,4 +1,4 @@
-from utils.parts.codigo import extract_code_from_response
+from src.utils.parts.codigo import extract_code_from_response
 from src.types import ExtraerCodigoState, GenerarPiezaState
 
 def extraer_codigo_node(state: GenerarPiezaState) -> ExtraerCodigoState:

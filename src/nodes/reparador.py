@@ -1,5 +1,5 @@
 from typing import Dict
-from utils.parts.codigo import repair_cadquery_code
+from src.utils.parts.codigo import repair_cadquery_code
 
 from src.types import EjecutarCodigoState, GenerarPiezaState
 

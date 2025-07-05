@@ -1,5 +1,5 @@
 from typing import Dict
-from utils.parts.qa_verification import generate_feedback
+from src.utils.parts.qa_verification import generate_feedback
 
 from src.types import FeedbackState, AnswersState
 

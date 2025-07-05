@@ -1,5 +1,5 @@
 from typing import Dict
-from utils.parts.qa_verification import answer_verification_questions
+from src.utils.parts.qa_verification import answer_verification_questions
 
 from src.types import AnswersState, FotografoState, QuestionsState
 

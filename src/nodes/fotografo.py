@@ -1,6 +1,6 @@
 import os
 from typing import Dict
-from utils.parts.fotos import generate_cad_images_from_step
+from src.utils.parts.fotos import generate_cad_images_from_step
 
 from src.types import FotografoState, EjecutarCodigoState
 
