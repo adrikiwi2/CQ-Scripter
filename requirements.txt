@@ -1,0 +1,4 @@
+openai
+langgraph
+cadquery
+pythonocc-core
