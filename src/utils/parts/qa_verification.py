@@ -62,7 +62,7 @@ def generate_verification_questions(new_description):
         {"role": "user", "content": "Now, given the following design description, please provide between 2 to 5 yes/no verification questions that adhere to the above guidelines:\n" + new_description}
     ]
     
-    # Llamamos al modelo gpt-4o
+    # Llamamos al modelo gpt-4.1
     completion = client.chat.completions.create(
         model="gpt-4o",
         messages=messages
@@ -73,7 +73,7 @@ def generate_verification_questions(new_description):
 def answer_verification_questions(image_paths, questions):
 
     """
-    Llama a gpt-4o para responder a un conjunto de preguntas de verificación, utilizando 4 imágenes
+    Llama a gpt-4.1 para responder a un conjunto de preguntas de verificación, utilizando 4 imágenes
     del objeto y un bloque de texto con las preguntas.
     """
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))

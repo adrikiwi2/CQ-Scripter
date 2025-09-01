@@ -91,25 +91,29 @@ def execute_cadquery_script(nombre_pieza: str, nombre_archivo_step: str = None) 
     Devuelve un dict con 'ok', 'error' y la ruta al archivo .step si se generó correctamente.
     """
     import os
+    import glob
     import importlib.util
     import traceback
     if not nombre_pieza or nombre_pieza == "None":
         return {"ok": False, "error": "[execute_cadquery_script] nombre_pieza no puede ser None ni vacío", "step_path": None}
-    if nombre_archivo_step is None:
-        nombre_archivo_step = f"{nombre_pieza}.step"
+    
     dir_path = os.path.join("parts", nombre_pieza)
     py_file_path = os.path.join(dir_path, f"{nombre_pieza}.py")
-    step_path = os.path.join(dir_path, nombre_archivo_step)
-    result = {"ok": False, "error": None, "step_path": step_path}
+    result = {"ok": False, "error": None, "step_path": None}
+    
     try:
         spec = importlib.util.spec_from_file_location("llm_cad_module", py_file_path)
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
-        # Verifica que el archivo .step se haya generado
-        if os.path.exists(step_path):
+        
+        # Busca cualquier archivo .step en el directorio de la pieza
+        step_files = glob.glob(os.path.join(dir_path, "*.step"))
+        if step_files:
+            # Toma el primer archivo .step encontrado
             result["ok"] = True
+            result["step_path"] = step_files[0]
         else:
-            result["error"] = f"Archivo STEP no encontrado en {step_path}"
+            result["error"] = f"No se encontró ningún archivo STEP en {dir_path}"
     except Exception as e:
         result["error"] = traceback.format_exc()
     return result
