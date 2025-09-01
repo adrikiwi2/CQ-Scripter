@@ -5,6 +5,9 @@ __pycache__/
 *.pyo
 *.pyd
 
+# Archivos generados - piezas CAD e imágenes
+parts/
+
 # Archivos temporales de LangGraph u otros checkpoints
 .langgraph_api/
 *.pckl
